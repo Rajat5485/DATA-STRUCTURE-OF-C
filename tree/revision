@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *left;
+    struct node *right;
+    
+};
+struct node * buildtree()
+{
+    printf("enter the data:");
+    int data1;
+    scanf("%d",&data1);
+    if(data1==-1)
+    {
+        return NULL;
+    }
+    struct node * newroot = (struct node*)malloc(sizeof(struct node));
+    newroot->data=data1;
+    printf("write the data for left child of %d",newroot->data);
+    newroot->left= buildtree();
+    printf("write the data for right child of %d",newroot->data);
+    newroot->right= buildtree();
+    return newroot;
+}
+int main()
+{
+    struct node * root;
+    root=NULL;
+    root= buildtree();
+}
+
+
+
